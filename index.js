@@ -1,6 +1,8 @@
 const express=require("express");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const cors = require("cors");
+
 
 const movieRoute=require("./routes/movies");
 const serieRoute=require("./routes/series");
@@ -16,7 +18,7 @@ mongoose
     console.log(err);
   });
 
-
+  app.use(cors());
   app.use("/rest_api",movieRoute);
   app.use("/rest_api",serieRoute);
 
